@@ -1,0 +1,39 @@
+import string
+
+Alphabet_upper= string.ascii_uppercase
+Alphabet_lower = string.ascii_lowercase
+
+User_message = input("Enter a message please: ")
+Moving = int(input("Enter a shift number: "))
+
+Encoded_message = ""
+Decrypted_message=""
+
+def Encrypting(Message, shift_number):
+    global Encoded_message
+    for letter in Message:
+        if letter in Alphabet_lower:
+            New_position = (Alphabet_lower.index(letter) + shift_number) % 26
+            Encoded_message += Alphabet_lower[New_position]
+        elif letter in Alphabet_upper:
+            New_position = (Alphabet_upper.index(letter) + shift_number) % 26
+            Encoded_message += Alphabet_upper[New_position]
+        else:
+            Encoded_message += letter
+    print(Encoded_message)
+def Decrypting(encoded_message,shift_number):
+  global Decrypted_message
+  for L in encoded_message:
+    if L in Alphabet_upper:
+      Old_position=(Alphabet_upper.index(L)-shift_number)%26
+      Decrypted_message+=Alphabet_upper[Old_position]
+    elif L in Alphabet_lower:
+      Old_position=(Alphabet_lower.index(L)-shift_number)%26
+      Decrypted_message+=Alphabet_lower[Old_position]
+    else:
+      Decrypted_message+=L
+  print(f'\n******\n{Decrypted_message}')
+
+Encrypting(User_message, Moving)
+Encrypted=Encoded_message
+Decrypting(Encrypted,Moving)
