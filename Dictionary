@@ -1,0 +1,11 @@
+Book={
+  "title":"Red queen",
+  "author":"Victoria Aveyard",
+   "year":2015,
+  "pages":383,
+  "is_many":"True",
+  "rating":4.1
+
+}
+print(f"The book name is {Book['title']} for the author {Book['author']} in {Book['year']}")
+
